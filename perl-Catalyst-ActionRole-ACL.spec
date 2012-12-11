@@ -1,24 +1,24 @@
 %define upstream_name    Catalyst-ActionRole-ACL
 %define upstream_version 0.05
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
 
-Summary:    User role-based authorization action class
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Catalyst/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	User role-based authorization action class
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Catalyst/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Catalyst::Controller::ActionRole)
-BuildRequires: perl(Catalyst::Runtime)
-BuildRequires: perl(ExtUtils::MakeMaker)
-BuildRequires: perl(Moose)
-BuildRequires: perl(Test::More)
-BuildRequires: perl(namespace::autoclean)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Catalyst::Controller::ActionRole)
+BuildRequires:	perl(Catalyst::Runtime)
+BuildRequires:	perl(ExtUtils::MakeMaker)
+BuildRequires:	perl(Moose)
+BuildRequires:	perl(Test::More)
+BuildRequires:	perl(namespace::autoclean)
+BuildArch:	noarch
 
 %description
 Provides a Catalyst::Controller::ActionRole for user role-based
@@ -29,24 +29,18 @@ application action subroutines.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc README Changes META.yml
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 
 
