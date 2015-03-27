@@ -1,9 +1,9 @@
 %define upstream_name    Catalyst-ActionRole-ACL
-%define upstream_version 0.05
+%define upstream_version 0.07
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	5
+Release:	1
 
 Summary:	User role-based authorization action class
 License:	GPL+ or Artistic
@@ -42,5 +42,3 @@ perl Makefile.PL INSTALLDIRS=vendor
 %doc README Changes META.yml
 %{_mandir}/man3/*
 %{perl_vendorlib}/*
-
-
