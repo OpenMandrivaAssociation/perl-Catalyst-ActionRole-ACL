@@ -1,15 +1,15 @@
 %define upstream_name    Catalyst-ActionRole-ACL
-%define upstream_version 0.05
+%define upstream_version 0.07
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	5
+Version:	%{upstream_version}
+Release:	1
 
 Summary:	User role-based authorization action class
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Catalyst/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://github.com/bobtfish/catalyst-actionrole-acl
+Source0:	https://cpan.metacpan.org/authors/id/B/BO/BOBTFISH/Catalyst-ActionRole-ACL-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
